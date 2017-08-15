@@ -1,0 +1,11 @@
+{
+  "name": "yddict",
+  "version": "1.0.0",
+  "description": "A CLI tool for querying youdao dict.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kenshinji <gundam0083ster@gmail.com>",
+  "license": "ISC"
+}
