@@ -9,6 +9,7 @@
   "author": "kenshinji <gundam0083ster@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.1.0",
     "cheerio": "^1.0.0-rc.2",
     "request": "^2.81.0"
   }
