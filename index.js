@@ -2,18 +2,35 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const chalk = require('chalk');
-//maybe we can add chalk for colorful display.
+const fs = require('fs');
 
-//word should be read from outside
+//const config = JSON.parse(fs.readFileSync('./config.json','utf8'));
+
+
+const readFile = (filename, encoding) => {
+
+    try {
+        return fs.readFileSync(filename).toString(encoding);
+    }
+    catch (e) {
+        return null;
+    }
+};
+
+const config = JSON.parse(readFile("./config.json","utf8"));
+
 const word = process.argv.slice(2)[0];
-//const word = 'very';
 const URL = `http://dict.youdao.com/w/eng/${word}`
+const options = {
+  'url':URL
+};
+
+if(config && config.proxy){
+  options.proxy = config.proxy;
+}
 
 
-request({
-  'url':URL,
-  'proxy':'http://web-proxy.jp.hpicorp.net:8080'
-},(error, response, body)=>{
+request(options,(error, response, body)=>{
   const $ = cheerio.load(body);
   console.log(chalk.blue($('div#phrsListTab > div.trans-container > ul').text()));
 });
