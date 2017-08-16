@@ -8,6 +8,9 @@
   },
   "author": "kenshinji <gundam0083ster@gmail.com>",
   "license": "ISC",
+  "bin": {
+    "yd": "index.js"
+  },
   "dependencies": {
     "chalk": "^2.1.0",
     "cheerio": "^1.0.0-rc.2",
