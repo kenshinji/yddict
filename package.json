@@ -1,15 +1,15 @@
 {
   "name": "yddict",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool for querying youdao dict.",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kenshinji <gundam0083ster@gmail.com>",
   "license": "ISC",
   "bin": {
-    "yd": "index.js"
+    "yd": "./index.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
