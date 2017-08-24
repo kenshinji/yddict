@@ -4,8 +4,8 @@ const cheerio = require('cheerio');
 const chalk = require('chalk');
 const fs = require('fs');
 
-//const config = JSON.parse(fs.readFileSync('./config.json','utf8'));
-
+const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+const configFile = home + "/config.json";
 
 const readFile = (filename, encoding) => {
 
@@ -17,10 +17,10 @@ const readFile = (filename, encoding) => {
     }
 };
 
-const config = JSON.parse(readFile("./config.json","utf8"));
+const config = JSON.parse(readFile(configFile,"utf8"));
 
 const word = process.argv.slice(2)[0];
-const URL = `http://dict.youdao.com/w/eng/${word}`
+const URL = `http://dict.youdao.com/w/${word}`
 const options = {
   'url':URL
 };
