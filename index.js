@@ -3,16 +3,17 @@ const request = require('request');
 const cheerio = require('cheerio');
 const chalk = require('chalk');
 const fs = require('fs');
+const Spinner = require('cli-spinner').Spinner;
+const spinner = new Spinner('searching... %s');
+const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+const configFile = home + "/config.json";
+let color = 'yellow';
 
-var Spinner = require('cli-spinner').Spinner;
 
-var spinner = new Spinner('searching... %s');
 spinner.setSpinnerString('|/-\\');
 spinner.start();
 
-let color = 'yellow';
-const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
-const configFile = home + "/config.json";
+
 
 const readFile = (filename, encoding) => {
 
