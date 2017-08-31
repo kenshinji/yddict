@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+
 const request = require('request');
 const cheerio = require('cheerio');
 const chalk = require('chalk');
 const fs = require('fs');
 const Spinner = require('cli-spinner').Spinner;
-const spinner = new Spinner('searching... %s');
+const spinner = new Spinner('努力查询中... %s');
 const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 const configFile = home + "/config.json";
-let color = 'yellow';
+let color = 'white';
 
 
 spinner.setSpinnerString('|/-\\');
