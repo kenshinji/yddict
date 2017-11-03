@@ -12,11 +12,8 @@ const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']
 const configFile = home + "/config.json";
 let color = 'white';
 
-
 spinner.setSpinnerString('|/-\\');
 spinner.start();
-
-
 
 const readFile = (filename, encoding) => {
 
@@ -30,10 +27,11 @@ const readFile = (filename, encoding) => {
 
 const config = JSON.parse(readFile(configFile,"utf8"));
 
-const word = process.argv.slice(2)[0];
+const input = process.argv.slice(2)
+const word = input.join(' ')
 const isCn = isChinese(word);
-const URL = isCn ? `http://dict.youdao.com/w/eng/${urlencode(word)}`:`http://dict.youdao.com/w/${word}`
-//const URL = 'http://dict.youdao.com/w/eng/%E5%A5%BD'
+const URL = isCn ? `http://dict.youdao.com/w/eng/${urlencode(word)}`:`http://dict.youdao.com/w/${urlencode(word)}`
+
 const options = {
   'url':URL
 };
@@ -49,18 +47,28 @@ if(config){
 
 const color_output = chalk.keyword(color);
 request(options,(error, response, body)=>{
+  const $ = cheerio.load(body, {
+    ignoreWhitespace: true,
+    xmlMode: true
+  });
+  let result = '';
 
-  const $ = cheerio.load(body);
-
-  //console.log(response);
   spinner.stop(true);
   if(isCn){
     $('div.trans-container > ul').find('p.wordGroup').each(function(i,elm){
-      var line = $(this).text().replace(/\s+/g," ");
-      console.log(color_output(line));
+      result = $(this).text().replace(/\s+/g," ");
     });
   }else{
-    console.log(color_output($('div#phrsListTab > div.trans-container > ul').text()));
+    result = $('div#phrsListTab > div.trans-container > ul').text();
   }
+  // phrase
+  if (result === '') {
+    result = $('div#webPhrase > p.wordGroup').text();
+  }
+  // sentence
+  if (result === '') {
+    result = $('div#fanyiToggle > div.trans-container > p:nth-child(2)').text();
+  }
+  console.log(color_output(result));
 
 });
