@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+
 const translate = require('./lib/translate')
-const controll = require('./lib/search');
+const search = require('./lib/search');
 const util = require('./lib/util')
 const argv = require('yargs')
   .options('s', {
@@ -13,18 +14,19 @@ const argv = require('yargs')
   .alias('h', 'help')
   .alias('v', 'version')
   .argv
-  const errHandle = (e) => {
-    console.log('查询出现错误,请重试')};
-    const input = argv._; // 用户输入的搜索字符
-    const word = input.join(' ');
-    
-    // 判断是否输入内容
-    if (word.trim().length === 0) {
-      console.log('please input the word to translate\n请输入要翻译的内容')
-      return
-    }
-    
+const input = argv._; 
+const word = input.join(' '); // 用户输入的搜索字符
+
+// 判断是否输入内容
+if (word.trim().length === 0) {
+  console.log('please input the word to translate\n请输入要翻译的内容')
+  return
+}
+
+
+if(argv.search) {
+  search.searchEng(word)
+  return
+}
+
 translate.translateWord(word)
-  .then(res => {
-  })
-  .catch(errHandle)
