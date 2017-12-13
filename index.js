@@ -26,6 +26,7 @@ const readFile = (filename, encoding) => {
 };
 
 const config = JSON.parse(readFile(configFile,"utf8"));
+console.log(process.argv);
 
 const input = process.argv.slice(2)
 const word = input.join(' ')
