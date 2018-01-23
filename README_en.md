@@ -1,4 +1,4 @@
-# YDDICT, A CLI tool to make looking up English/Chinese words handy [简体中文](https://raw.githubusercontent.com/kenshinji/yddict/master/README.md)
+# YDDICT, A CLI tool to make looking up English/Chinese words handy [简体中文](./README.md)
 
 > Don't like the resource-consuming [Youdao dict App](http://cidian.youdao.com/index-mac.html)? Nor the [web version](http://dict.youdao.com/)? Why don't you give my YDDICT a shot?
 
