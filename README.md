@@ -1,4 +1,4 @@
-# 有道词典命令行查询工具 [English](https://raw.githubusercontent.com/kenshinji/yddict/master/README_en.md)
+# 有道词典命令行查询工具 [English](./README_en.md)
 
 >不喜欢安装有道词典的应用程序，因为太耗资源还一堆广告，但是用浏览器打开`dict.youdao.com`也挺麻烦的，不是吗？快来试试我的有道词典命令行工具吧！
 
