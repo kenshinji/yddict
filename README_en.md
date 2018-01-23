@@ -1,6 +1,6 @@
-# 有道词典命令行查询工具 [English](https://raw.githubusercontent.com/kenshinji/yddict/master/README_en.md)
+# YDDICT, A CLI tool to make looking up English/Chinese words handy [简体中文](https://raw.githubusercontent.com/kenshinji/yddict/master/README.md)
 
->不喜欢安装有道词典的应用程序，因为太耗资源还一堆广告，但是用浏览器打开`dict.youdao.com`也挺麻烦的，不是吗？快来试试我的有道词典命令行工具吧！
+> Don't like the resource-consuming [Youdao dict App](http://cidian.youdao.com/index-mac.html)? Nor the [web version](http://dict.youdao.com/)? Why don't you give my YDDICT a shot?
 
 [![GitHub stars](https://img.shields.io/github/stars/kenshinji/yddict.svg?style=plastic)](https://github.com/kenshinji/yddict/stargazers)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/kenshinji/yddict/blob/master/LICENSE.txt)
@@ -9,20 +9,20 @@
 
 [![gif with examples][examples-link]][examples-link]
 
-## 安装ß
+## Install
 
     npm install yddict -g
 
-## 使用说明
+## Usage
 
-    yd <要查询的单词>
+    yd <word to look up>
 
-## 自定义设置
-  目前自定义设置选项如下，可以通过用户主目录下`config.json`文件来配置
+## Custom Configuration
+  You can add following configuration options to `config.json` file which is located to your $HOME directory.
 
     {
-      "proxy":"http://<主机地址>:<端口>" //代理设置
-      "color":"<自定义显示颜色>" //自定义字体颜色显示，默认白色
+      "proxy":"http://<SERVER ADDRESS>:<PORT>" //proxy configuration
+      "color":"<CUSTOM FONT COLOR>" //Custom font color configuration, default to white
     }
 
 
