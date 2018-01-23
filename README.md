@@ -9,7 +9,7 @@
 
 [![gif with examples][examples-link]][examples-link]
 
-## 安装ß
+## 安装
 
     npm install yddict -g
 
