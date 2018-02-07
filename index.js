@@ -1,74 +1,35 @@
 #!/usr/bin/env node
 
-const request = require('request');
-const cheerio = require('cheerio');
-const chalk = require('chalk');
-const fs = require('fs');
-const Spinner = require('cli-spinner').Spinner;
-const isChinese = require('is-chinese')
-const urlencode = require('urlencode');
-const spinner = new Spinner('努力查询中... %s');
-const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
-const configFile = home + "/config.json";
-let color = 'white';
+const translate = require('./lib/translate')
+const search = require('./lib/search');
+const util = require('./lib/util')
+const argv = require('yargs')
+  .options('s', {
+    alias: 'search',
+    boolean: true,
+    describe: 'search *only English*'
+  })
+  .usage('Usage: <word> [options]')
+  .help('h')
+  .alias('h', 'help')
+  .alias('v', 'version')
+  .argv
+const input = argv._; 
+const word = input.join(' '); // 用户输入的搜索字符
 
-spinner.setSpinnerString('|/-\\');
-spinner.start();
+// 判断是否输入内容
 
-const readFile = (filename, encoding) => {
-
-    try {
-        return fs.readFileSync(filename).toString(encoding);
-    }
-    catch (e) {
-        return null;
-    }
-};
-
-const config = JSON.parse(readFile(configFile,"utf8"));
-
-const input = process.argv.slice(2)
-const word = input.join(' ')
-const isCn = isChinese(word);
-const URL = isCn ? `http://dict.youdao.com/w/eng/${urlencode(word)}`:`http://dict.youdao.com/w/${urlencode(word)}`
-
-const options = {
-  'url':URL
-};
-
-if(config){
-  if(config.proxy){
-    options.proxy = config.proxy;
+function main () {
+  // 如果输入是空
+  if (word.trim().length === 0) {
+    console.log('please input the word to translate\n请输入要翻译的内容')
+    return
   }
-  if(config.color){
-    color = config.color;
+  // 如果输入了-s参数
+  if(argv.search) {
+    search.searchEng(word)
+    return
   }
+  translate.translateWord(word)
 }
-
-const color_output = chalk.keyword(color);
-request(options,(error, response, body)=>{
-  const $ = cheerio.load(body, {
-    ignoreWhitespace: true,
-    xmlMode: true
-  });
-  let result = '';
-
-  spinner.stop(true);
-  if(isCn){
-    $('div.trans-container > ul').find('p.wordGroup').each(function(i,elm){
-      result = $(this).text().replace(/\s+/g," ");
-    });
-  }else{
-    result = $('div#phrsListTab > div.trans-container > ul').text();
-  }
-  // phrase
-  if (result === '') {
-    result = $('div#webPhrase > p.wordGroup').text();
-  }
-  // sentence
-  if (result === '') {
-    result = $('div#fanyiToggle > div.trans-container > p:nth-child(2)').text();
-  }
-  console.log(color_output(result));
-
-});
+main()
