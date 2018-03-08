@@ -20,42 +20,45 @@ const input = process.argv.slice(2)
 const word = input.join(' ')
 
 const options = {
-  'url': isChinese(word) ? `http://dict.youdao.com/w/eng/${urlencode(word)}` : `http://dict.youdao.com/w/${urlencode(word)}`
+	'url': isChinese(word) ? `http://dict.youdao.com/w/eng/${urlencode(word)}` : `http://dict.youdao.com/w/${urlencode(word)}`
 }
 
 if (conf.get('proxy')) {
-  options.proxy = conf.get('proxy')
+	options.proxy = conf.get('proxy')
 }
 
 let color = conf.get('color')
 
 const ColorOutput = chalk.keyword(color)
 request(options, (error, response, body) => {
-  if (error) {
-    console.err(error)
-  }
-  // parse response
-  const $ = cheerio.load(body, {
-    ignoreWhitespace: true,
-    xmlMode: true
-  })
-  let result = ''
+	if (error) {
+		console.err(error)
+	}
 
-  spinner.stop(true)
-  if (isChinese(word)) {
-    $('div.trans-container > ul').find('p.wordGroup').each(function (i, elm) {
-      result = $(this).text().replace(/\s+/g, ' ')
-    })
-  } else {
-    result = $('div#phrsListTab > div.trans-container > ul').text()
-  }
-  // phrase
-  if (result === '') {
-    result = $('div#webPhrase > p.wordGroup').text()
-  }
-  // sentence
-  if (result === '') {
-    result = $('div#fanyiToggle > div.trans-container > p:nth-child(2)').text()
-  }
-  console.log(ColorOutput(result))
+	console.log(body)
+
+	// parse response
+	const $ = cheerio.load(body, {
+		ignoreWhitespace: true,
+		xmlMode: true
+	})
+	let result = ''
+
+	spinner.stop(true)
+	if (isChinese(word)) {
+		$('div.trans-container > ul').find('p.wordGroup').each(function (i, elm) {
+			result = $(this).text().replace(/\s+/g, ' ')
+		})
+	} else {
+		result = $('div#phrsListTab > div.trans-container > ul').text()
+	}
+	// phrase
+	if (result === '') {
+		result = $('div#webPhrase > p.wordGroup').text()
+	}
+	// sentence
+	if (result === '') {
+		result = $('div#fanyiToggle > div.trans-container > p:nth-child(2)').text()
+	}
+	console.log(ColorOutput(result))
 })
