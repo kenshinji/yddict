@@ -18,7 +18,7 @@
     yd <word to look up>
 
 ## Custom Configuration
-  You can add following configuration options to `config.json` file which is located to your $HOME directory.
+  You can add following configuration options to `.config/configstore/yddict.json` file which is located to your $HOME directory. The file will be generated automatically after your first running if it doesn't exist.
 
     {
       "proxy":"http://<SERVER ADDRESS>:<PORT>" //proxy configuration

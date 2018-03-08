@@ -15,6 +15,7 @@
     "chalk": "^2.1.0",
     "cheerio": "^1.0.0-rc.2",
     "cli-spinner": "^0.2.6",
+    "configstore": "^3.1.1",
     "is-chinese": "^1.2.5",
     "request": "^2.81.0",
     "urlencode": "^1.1.0"
