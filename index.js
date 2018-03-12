@@ -7,9 +7,9 @@ const Spinner = require('cli-spinner').Spinner
 const isChinese = require('is-chinese')
 const urlencode = require('urlencode')
 
-const pkg = require('./package.json')
-const Configstore = require('configstore')
-var conf = new Configstore(pkg.name, { color: 'white' })
+// const pkg = require('./package.json')
+// const Configstore = require('configstore')
+// var conf = new Configstore(pkg.name, { color: 'white' })
 
 const spinner = new Spinner('努力查询中... %s')
 
@@ -34,8 +34,6 @@ request(options, (error, response, body) => {
 	if (error) {
 		console.err(error)
 	}
-
-	console.log(body)
 
 	// parse response
 	const $ = cheerio.load(body, {
