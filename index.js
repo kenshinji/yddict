@@ -18,17 +18,18 @@ const input = process.argv.slice(2)
 const word = input.join(' ')
 
 const options = {
-	'url': (isChinese(word) ? 'http://dict.youdao.com/w/eng/' : 'http://dict.youdao.com/w/') + urlencode(word)
+	'url': config.getURL(word) + urlencode(word),
+	'proxy': config.proxy || null
 }
 
-if (config.proxy) {
-	options.proxy = config.proxy
-}
+// if (!config.proxy) {
+// 	options.proxy = config.proxy
+// }
 
 const ColorOutput = chalk.keyword(config.color)
 request(options, (error, response, body) => {
 	if (error) {
-		console.err(error)
+		console.error(error)
 	}
 
 	// parse response
