@@ -6,10 +6,8 @@ const chalk = require('chalk')
 const Spinner = require('cli-spinner').Spinner
 const isChinese = require('is-chinese')
 const urlencode = require('urlencode')
+const config = require('./lib/config')
 
-// const pkg = require('./package.json')
-// const Configstore = require('configstore')
-// var conf = new Configstore(pkg.name, { color: 'white' })
 
 const spinner = new Spinner('努力查询中... %s')
 
@@ -20,16 +18,14 @@ const input = process.argv.slice(2)
 const word = input.join(' ')
 
 const options = {
-	'url': isChinese(word) ? `http://dict.youdao.com/w/eng/${urlencode(word)}` : `http://dict.youdao.com/w/${urlencode(word)}`
+	'url': (isChinese(word) ? 'http://dict.youdao.com/w/eng/' : 'http://dict.youdao.com/w/') + urlencode(word)
 }
 
-if (conf.get('proxy')) {
-	options.proxy = conf.get('proxy')
+if (config.proxy) {
+	options.proxy = config.proxy
 }
 
-let color = conf.get('color')
-
-const ColorOutput = chalk.keyword(color)
+const ColorOutput = chalk.keyword(config.color)
 request(options, (error, response, body) => {
 	if (error) {
 		console.err(error)

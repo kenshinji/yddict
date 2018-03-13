@@ -4,7 +4,7 @@
   "description": "A CLI tool for querying youdao dict.",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "lint": "eslint ."
   },
   "author": "kenshinji <gundam0083ster@gmail.com>",
