@@ -14,17 +14,12 @@ const spinner = new Spinner('努力查询中... %s')
 spinner.setSpinnerString('|/-\\')
 spinner.start()
 
-const input = process.argv.slice(2)
-const word = input.join(' ')
+const word = process.argv.slice(2).join(' ')
 
 const options = {
 	'url': config.getURL(word) + urlencode(word),
 	'proxy': config.proxy || null
 }
-
-// if (!config.proxy) {
-// 	options.proxy = config.proxy
-// }
 
 const ColorOutput = chalk.keyword(config.color)
 request(options, (error, response, body) => {
