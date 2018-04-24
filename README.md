@@ -6,6 +6,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/kenshinji/yddict/blob/master/LICENSE.txt)
 [![npm version](https://badge.fury.io/js/yddict.svg)](https://badge.fury.io/js/yddict)
 [![Code Climate](https://codeclimate.com/github/kenshinji/yddict/badges/gpa.svg)](https://codeclimate.com/github/kenshinji/yddict)
+[![Build Status](https://travis-ci.org/kenshinji/yddict.svg?branch=master)](https://travis-ci.org/kenshinji/yddict)
 
 [![gif with examples][examples-link]][examples-link]
 
