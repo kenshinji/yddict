@@ -7,6 +7,7 @@ const Spinner = require('cli-spinner').Spinner
 const isChinese = require('is-chinese')
 const urlencode = require('urlencode')
 const config = require('./lib/config')
+const Parser = require('./lib/parser')
 
 
 const spinner = new Spinner('努力查询中... %s')
@@ -15,6 +16,7 @@ spinner.setSpinnerString('|/-\\')
 spinner.start()
 
 const word = process.argv.slice(2).join(' ')
+const is_CN = isChinese(word)
 
 const options = {
 	'url': config.getURL(word) + urlencode(word),
@@ -27,28 +29,6 @@ request(options, (error, response, body) => {
 		console.error(error)
 	}
 
-	// parse response
-	const $ = cheerio.load(body, {
-		ignoreWhitespace: true,
-		xmlMode: true
-	})
-	let result = ''
-
 	spinner.stop(true)
-	if (isChinese(word)) {
-		$('div.trans-container > ul').find('p.wordGroup').each(function (i, elm) {
-			result = $(this).text().replace(/\s+/g, ' ')
-		})
-	} else {
-		result = $('div#phrsListTab > div.trans-container > ul').text()
-	}
-	// phrase
-	if (result === '') {
-		result = $('div#webPhrase > p.wordGroup').text()
-	}
-	// sentence
-	if (result === '') {
-		result = $('div#fanyiToggle > div.trans-container > p:nth-child(2)').text()
-	}
-	console.log(ColorOutput(result))
+	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
