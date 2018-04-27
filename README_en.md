@@ -25,6 +25,12 @@
       "color":"<CUSTOM FONT COLOR>" //Custom font color configuration, default to white
     }
 
+## How to contribute code to this project(Issue and documentation are welcome as well).
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repo.
+2. Run `npm install` to install all dependencies.
+3. Run `npm test` after your modification to make sure your change doesn't break anything.
+4. Submit a [PR](https://help.github.com/articles/about-pull-requests/)
+
 
 
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif

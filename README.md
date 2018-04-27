@@ -18,7 +18,7 @@
 
     yd <要查询的单词>
 
-## 自定义设置
+ - ### 自定义设置
   目前自定义设置选项如下，可以通过用户主目录下`.config/configstore/yddict.json`文件来配置, 如果没有该文件，第一次运行之后会自动生成。
 
     {
@@ -26,6 +26,10 @@
       "color":"<自定义显示颜色>" //自定义字体颜色显示，默认白色
     }
 
-
+## 如何贡献代码
+1. 先[fork](https://www.zhihu.com/question/20431718)这个代码库。
+2. `npm install` 安装所需要的依赖。
+3. 代码改动之后请运行`npm test`确保你的改动没有影响到其他的部分。
+4. 提[PR](https://www.zhihu.com/question/21682976).
 
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif
