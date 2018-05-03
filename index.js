@@ -33,6 +33,6 @@ request(options, (error, response, body) => {
 
 	if (config.spinner) {
 		spinner.stop(true)
-    }
+	}
 	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
