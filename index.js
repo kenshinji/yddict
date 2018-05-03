@@ -9,6 +9,11 @@ const urlencode = require('urlencode')
 const config = require('./lib/config')
 const Parser = require('./lib/parser')
 
+const word = process.argv.slice(2).join(' ')
+if(!word){
+	console.log("Usage: yd <WORD_TO_QUERY>")
+	return
+}
 
 const spinner = new Spinner('努力查询中... %s')
 
@@ -17,7 +22,7 @@ if (config.spinner) {
 	spinner.start()
 }
 
-const word = process.argv.slice(2).join(' ')
+// const word = yargs[0]
 const is_CN = isChinese(word)
 
 const options = {
