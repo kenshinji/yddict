@@ -12,8 +12,10 @@ const Parser = require('./lib/parser')
 
 const spinner = new Spinner('努力查询中... %s')
 
-spinner.setSpinnerString('|/-\\')
-spinner.start()
+if (config.spinner) {
+	spinner.setSpinnerString('|/-\\')
+	spinner.start()
+}
 
 const word = process.argv.slice(2).join(' ')
 const is_CN = isChinese(word)
@@ -29,6 +31,8 @@ request(options, (error, response, body) => {
 		console.error(error)
 	}
 
-	spinner.stop(true)
+	if (config.spinner) {
+		spinner.stop(true)
+	}
 	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
