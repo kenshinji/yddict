@@ -13,8 +13,8 @@ const Parser = require('./lib/parser')
 const spinner = new Spinner('努力查询中... %s')
 
 if (config.spinner) {
-    spinner.setSpinnerString('|/-\\')
-    spinner.start()
+	spinner.setSpinnerString('|/-\\')
+	spinner.start()
 }
 
 const word = process.argv.slice(2).join(' ')
@@ -32,7 +32,7 @@ request(options, (error, response, body) => {
 	}
 
 	if (config.spinner) {
-        spinner.stop(true)
+		spinner.stop(true)
     }
 	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
