@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0
+*2018-05-04*
+- Add phonetic symbol for English words
+- Add unit tests
+- Fix a few bugs
+
 ## v1.1.0
 *2017-11-04*
 - Add phrase and sentence search
