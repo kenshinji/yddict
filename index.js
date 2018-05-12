@@ -10,7 +10,7 @@ const noCase = require('no-case')
 const config = require('./lib/config')
 const Parser = require('./lib/parser')
 
-const word = noCase(process.argv.slice(2).join(' '))
+const word = process.argv.slice(2).join(' ')
 if(!word){
 	console.log("Usage: yd <WORD_TO_QUERY>")
 	return
@@ -40,5 +40,6 @@ request(options, (error, response, body) => {
 	if (config.spinner) {
 		spinner.stop(true)
 	}
+	body = is_CN ? body : noCase(body)
 	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
