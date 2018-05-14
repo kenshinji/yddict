@@ -10,7 +10,7 @@ const noCase = require('no-case')
 const config = require('./lib/config')
 const Parser = require('./lib/parser')
 
-const word = process.argv.slice(2).join(' ')
+let word = process.argv.slice(2).join(' ')
 if(!word){
 	console.log("Usage: yd <WORD_TO_QUERY>")
 	return
@@ -26,6 +26,8 @@ if (config.spinner) {
 // const word = yargs[0]
 const is_CN = isChinese(word)
 
+word = is_CN ? word : noCase(word)
+
 const options = {
 	'url': config.getURL(word) + urlencode(word),
 	'proxy': config.proxy || null
@@ -40,6 +42,5 @@ request(options, (error, response, body) => {
 	if (config.spinner) {
 		spinner.stop(true)
 	}
-	body = is_CN ? body : noCase(body)
 	console.log(ColorOutput(Parser.parse(is_CN, body)))
 })
