@@ -6,10 +6,11 @@ const chalk = require('chalk')
 const Spinner = require('cli-spinner').Spinner
 const isChinese = require('is-chinese')
 const urlencode = require('urlencode')
+const noCase = require('no-case')
 const config = require('./lib/config')
 const Parser = require('./lib/parser')
 
-const word = process.argv.slice(2).join(' ')
+let word = process.argv.slice(2).join(' ')
 if(!word){
 	console.log("Usage: yd <WORD_TO_QUERY>")
 	return
@@ -24,6 +25,8 @@ if (config.spinner) {
 
 // const word = yargs[0]
 const is_CN = isChinese(word)
+
+word = is_CN ? word : noCase(word)
 
 const options = {
 	'url': config.getURL(word) + urlencode(word),

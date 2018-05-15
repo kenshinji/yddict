@@ -18,6 +18,7 @@
     "cli-spinner": "^0.2.6",
     "configstore": "^3.1.1",
     "is-chinese": "^1.2.5",
+    "no-case": "^2.3.2",
     "request": "^2.81.0",
     "urlencode": "^1.1.0"
   },
