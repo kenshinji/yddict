@@ -7,6 +7,7 @@
 [![npm version](https://badge.fury.io/js/yddict.svg)](https://badge.fury.io/js/yddict)
 [![Code Climate](https://codeclimate.com/github/kenshinji/yddict/badges/gpa.svg)](https://codeclimate.com/github/kenshinji/yddict)
 [![Build Status](https://travis-ci.org/kenshinji/yddict.svg?branch=master)](https://travis-ci.org/kenshinji/yddict)
+[![Coverage Status](https://coveralls.io/repos/github/kenshinji/yddict/badge.svg?branch=master)](https://coveralls.io/github/kenshinji/yddict?branch=master)
 
 [![gif with examples][examples-link]][examples-link]
 
