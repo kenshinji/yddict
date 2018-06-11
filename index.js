@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const request = require('request')
-const cheerio = require('cheerio')
 const chalk = require('chalk')
 const Spinner = require('cli-spinner').Spinner
 const isChinese = require('is-chinese')
@@ -11,9 +10,9 @@ const config = require('./lib/config')
 const Parser = require('./lib/parser')
 
 let word = process.argv.slice(2).join(' ')
-if(!word){
-	console.log("Usage: yd <WORD_TO_QUERY>")
-	return
+if (!word) {
+	console.log('Usage: yd <WORD_TO_QUERY>')
+	process.exit()
 }
 
 const spinner = new Spinner('努力查询中... %s')
@@ -24,9 +23,9 @@ if (config.spinner) {
 }
 
 // const word = yargs[0]
-const is_CN = isChinese(word)
+const isCN = isChinese(word)
 
-word = is_CN ? word : noCase(word)
+word = isCN ? word : noCase(word)
 
 const options = {
 	'url': config.getURL(word) + urlencode(word),
@@ -42,5 +41,5 @@ request(options, (error, response, body) => {
 	if (config.spinner) {
 		spinner.stop(true)
 	}
-	console.log(ColorOutput(Parser.parse(is_CN, body)))
+	console.log(ColorOutput(Parser.parse(isCN, body)))
 })
