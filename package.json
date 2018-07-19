@@ -17,7 +17,6 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "cheerio": "^1.0.0-rc.2",
-    "cli-spinner": "^0.2.6",
     "configstore": "^3.1.1",
     "is-chinese": "^1.2.5",
     "no-case": "^2.3.2",
@@ -37,6 +36,7 @@
     "husky": "^0.14.3",
     "mocha": "^5.0.4",
     "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^12.0.2"
+    "nyc": "^12.0.2",
+    "ora": "^3.0.0"
   }
 }

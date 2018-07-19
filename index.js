@@ -2,7 +2,7 @@
 
 const request = require('request')
 const chalk = require('chalk')
-const Spinner = require('cli-spinner').Spinner
+const ora = require('ora')
 const isChinese = require('is-chinese')
 const urlencode = require('urlencode')
 const noCase = require('no-case')
@@ -15,14 +15,11 @@ if (!word) {
 	process.exit()
 }
 
-const spinner = new Spinner('努力查询中... %s')
-
+let spinner
 if (config.spinner) {
-	spinner.setSpinnerString('|/-\\')
-	spinner.start()
+	spinner = ora('努力查询中... ').start()
 }
 
-// const word = yargs[0]
 const isCN = isChinese(word)
 
 word = isCN ? word : noCase(word)
@@ -39,7 +36,7 @@ request(options, (error, response, body) => {
 	}
 
 	if (config.spinner) {
-		spinner.stop(true)
+		spinner.stop()
 	}
 	console.log(ColorOutput(Parser.parse(isCN, body)))
 })
