@@ -31,6 +31,10 @@
 3. Run `npm test` after your modification to make sure your change doesn't break anything.
 4. Submit a [PR](https://help.github.com/articles/about-pull-requests/)
 
+## Discussion
+
+ 1.  [Telegram channel](https://t.me/yddict)
+
 
 
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif
