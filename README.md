@@ -33,4 +33,8 @@
 3. 代码改动之后请运行`npm test`确保你的改动没有影响到其他的部分。
 4. 提[PR](https://www.zhihu.com/question/21682976).
 
+## 参与讨论
+
+ 1.  [Telegram 群](https://t.me/yddict)
+
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif
