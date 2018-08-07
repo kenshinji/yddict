@@ -8,6 +8,7 @@
 [![Code Climate](https://codeclimate.com/github/kenshinji/yddict/badges/gpa.svg)](https://codeclimate.com/github/kenshinji/yddict)
 [![Build Status](https://travis-ci.org/kenshinji/yddict.svg?branch=master)](https://travis-ci.org/kenshinji/yddict)
 [![Coverage Status](https://coveralls.io/repos/github/kenshinji/yddict/badge.svg?branch=master)](https://coveralls.io/github/kenshinji/yddict?branch=master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkenshinji%2Fyddict.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkenshinji%2Fyddict?ref=badge_shield)
 
 [![gif with examples][examples-link]][examples-link]
 
