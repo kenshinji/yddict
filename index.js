@@ -22,7 +22,6 @@ if (config.spinner) {
 	spinner.start()
 }
 
-// const word = yargs[0]
 const isCN = isChinese(word)
 
 word = isCN ? word : noCase(word)

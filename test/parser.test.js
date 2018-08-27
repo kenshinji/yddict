@@ -2,8 +2,7 @@ const expect = require('chai').expect
 const Parser = require('../lib/parser')
 const fs = require('fs')
 const path = require('path')
-const expectedOutput = '英 [həˈləʊ] 美 [helˈō]  int. 喂；哈罗 n. 表示问候， 惊奇或唤起注意时的用语 n. (Hello)人名；(法)埃洛 '
-
+const expectedOutput = `英 [həˈləʊ] 美 [helˈō] \n\nint. 喂；哈罗\nn. 表示问候， 惊奇或唤起注意时的用语\nn. (Hello)人名；(法)埃洛\n`
 describe('Unit tests for parser', () => {
 	it('Test for parsing html page content', (done) => {
 		const body = fs.readFileSync(path.join(__dirname, '../test/fixtures/body.html'))
