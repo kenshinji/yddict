@@ -7,7 +7,8 @@
     },
     "rules":{
 	"indent": [2, "tab"],
-	"no-tabs": 0
+    "no-tabs": 0,
+    "no-useless-escape": 0
     },
       "env": {
 	      "mocha":true
