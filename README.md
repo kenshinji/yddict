@@ -39,3 +39,7 @@
  1.  [Telegram 群](https://t.me/yddict)
 
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkenshinji%2Fyddict.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkenshinji%2Fyddict?ref=badge_large)
