@@ -1,10 +1,13 @@
 node_modules/
 package-lock.json
 .idea/
+npm-debug.log.*
 coverage/
 .nyc_output/
 
 .*.swp
 .*.swo
 .DS_Store
-npm-debug.log.*
+
+// todo 测试过不了这里不传了
+test/
