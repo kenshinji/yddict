@@ -44,4 +44,11 @@ describe('Unit tests for parser', () => {
 		expect(result).to.deep.equal(expectedOutput)
 		done()
 	})
+	it('argv parse', (done) => {
+		const argv = ['cmd', 'jspath']
+		var expectedOutput = {includeSample: false, word: ''}
+		var result = Parser.getOptions(argv)
+		expect(result).to.deep.equal(expectedOutput)
+		done()
+	})
 })
