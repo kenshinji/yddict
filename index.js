@@ -13,7 +13,7 @@ let word = options_.word
 let includeSample = options_.includeSample
 
 if (!word) {
-	console.log('Usage: yd <WORD_TO_QUERY>')
+	console.log('Usage: yd [-v]<WORD_TO_QUERY>')
 	process.exit()
 }
 const spinner = new Spinner('努力查询中... %s')
