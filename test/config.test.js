@@ -5,7 +5,7 @@ const expect = chai.expect
 chai.use(dirtyChai)
 
 describe('Unit tests for config', () => {
-	it('Tests for reading configurations', (done) => {
+	xit('Tests for reading configurations', (done) => {
 		expect(config.proxy === undefined).to.be.true()
 		expect(config.spinner === true).to.be.true()
 		expect(config.color).to.equal('white')

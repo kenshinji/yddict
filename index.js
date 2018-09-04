@@ -8,13 +8,14 @@ const urlencode = require('urlencode')
 const noCase = require('no-case')
 const config = require('./lib/config')
 const Parser = require('./lib/parser')
+var options_ = Parser.getOptions(process.argv)
+let word = options_.word
+let includeSample = options_.includeSample
 
-let word = process.argv.slice(2).join(' ')
 if (!word) {
 	console.log('Usage: yd <WORD_TO_QUERY>')
 	process.exit()
 }
-
 const spinner = new Spinner('努力查询中... %s')
 
 if (config.spinner) {
@@ -40,5 +41,5 @@ request(options, (error, response, body) => {
 	if (config.spinner) {
 		spinner.stop(true)
 	}
-	console.log(ColorOutput(Parser.parse(isCN, body)))
+	console.log(ColorOutput(Parser.parse(isCN, body, !includeSample)))
 })
