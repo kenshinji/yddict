@@ -16,6 +16,21 @@ describe('Unit tests for parser', () => {
 		expect(result).to.equal(expectedOutput)
 		done()
 	})
+	it('zh-cn', (done) => {
+		Parser.query('hello', false, (result) => {
+			console.log('zh-cn, result')
+			var expectedOutput = `英 [həˈləʊ] 美 [helˈō] \n\nint. 喂；哈罗\nn. 表示问候， 惊奇或唤起注意时的用语\nn. (Hello)人名；(法)埃洛\n\n`
+			expect(result).to.equal(expectedOutput)
+			done()
+		})
+	}).timeout(5000)
+	it('zh-cn', (done) => {
+		Parser.query('你好', true, (result) => {
+			var expectedOutput = `\n\n hello ; hi \n`
+			expect(result).to.equal(expectedOutput)
+			done()
+		})
+	}).timeout(5000)
 	it('argv parse', (done) => {
 		const argv = ['cmd', 'jspath', '-v', 'hello']
 		var expectedOutput = {includeSample: true, word: 'hello'}
