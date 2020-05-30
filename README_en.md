@@ -38,3 +38,7 @@
 
 
 [examples-link]:   https://raw.githubusercontent.com/kenshinji/yddict/master/example.gif
+
+
+## Buy me a coffee
+<a href="https://www.buymeacoffee.com/kenshinji" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/arial-violet.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
