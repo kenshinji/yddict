@@ -17,6 +17,7 @@ if (!word) {
 
 const spinner = new Spinner('努力查询中... %s')
 
+
 if (config.spinner) {
 	spinner.setSpinnerString('|/-\\')
 	spinner.start()
