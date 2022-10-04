@@ -37,6 +37,7 @@ request(options, (error, response, body) => {
 	if (error) {
 		console.error(error)
 	}
+	console.log(body)
 
 	if (config.spinner) {
 		spinner.stop(true)
