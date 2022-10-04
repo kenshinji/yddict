@@ -13,10 +13,6 @@ describe('Unit tests for parser', () => {
 
 	it('Test for parsing html page content when word is Chinese', (done) => {
 		const body = fs.readFileSync(path.join(__dirname, '../test/fixtures/cn-body.html'))
-		const actual = Parser.parse(true, body)
-		console.log("===============");
-		console.log(actual);
-		console.log("===============");
 		expect(Parser.parse(true, body)).to.equal(expectedOutput2)
 		done()
 	})
