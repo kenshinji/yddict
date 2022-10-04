@@ -4,7 +4,7 @@
   "description": "A CLI tool for querying youdao dict.",
   "main": "./index.js",
   "scripts": {
-    "test": "nyc --reporter=lcov mocha",
+    "test": "nyc --reporter=text mocha",
     "lint": "eslint .",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "precommit": "npm test && npm run lint"
@@ -28,15 +28,15 @@
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "dirty-chai": "^2.0.1",
-    "eslint": "^4.18.2",
+    "eslint": "^8.24.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.1.0",
     "husky": "^0.14.3",
-    "mocha": "^5.0.4",
+    "mocha": "^10.0.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^12.0.2"
+    "nyc": "^15.1.0"
   }
 }
